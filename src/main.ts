@@ -4,6 +4,7 @@ import '/@/design/index.less';
 import 'virtual:windi-utilities.css';
 // Register icon sprite
 import 'virtual:svg-icons-register';
+import hello from './hello.js'; // 引入文件
 import App from './App.vue';
 import { createApp } from 'vue';
 import { initAppConfigStore } from '/@/logics/initAppConfig';
@@ -17,6 +18,13 @@ import { registerGlobComp } from '/@/components/registerGlobComp';
 
 async function bootstrap() {
   const app = createApp(App);
+  // hello.js 返回的是一个 promise
+  const ModuleHello = await hello({
+    noInitialRun: true,
+    noExitRuntime: true,
+  });
+  // 全局挂在 ModuleHello 实例
+  app.config.globalProperties.$hello = ModuleHello;
 
   // Configure store
   setupStore(app);

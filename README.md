@@ -44,7 +44,7 @@ Open the project in Gitpod (free online dev environment for GitHub) and start co
 
 ## Documentation
 
-[Document](https://vvbin.cn/doc-next/)
+[Document](https://vvbin.cn/doc-next/)接下来，您需要通过源码自己编译一个 Emscripten。运行下列命令来自动化地使用 Emscripten SDK。(在你想保存 Emscripten 的文件夹下运行)。
 
 ## Preparation
 

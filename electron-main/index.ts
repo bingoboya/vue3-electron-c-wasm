@@ -30,6 +30,9 @@ class createWin {
       : `file://${join(__dirname, '../index.html')}`; // vite 构建后的静态文件地址
 
     mainWindow.loadURL(URL);
+    // if (is_dev) {
+    mainWindow.webContents.openDevTools();
+    // }
 
     mainWindow.on('ready-to-show', () => {
       mainWindow.show();

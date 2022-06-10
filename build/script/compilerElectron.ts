@@ -57,7 +57,7 @@ export function startCompilerElectron(port = 80) {
         } else {
           watchFunc();
         }
-      }
+      },
     );
   } else {
     spinner.start();
@@ -65,7 +65,7 @@ export function startCompilerElectron(port = 80) {
       .rollup(rollupOptions)
       .then((build) => {
         spinner.stop();
-        console.log(TAG, chalk.green('Electron build successed.'));
+        console.log(TAG, chalk.green('Electron build successed1.'));
         build.write(rollupOptions.output as OutputOptions);
       })
       .catch((error) => {

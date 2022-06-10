@@ -17,6 +17,6 @@ import minimist from 'minimist';
     port = app.config.server.port;
     process.env.PORT = `${port}`;
   }
-
+  // https://bingotun@github.com/bingotun/vue3-electron-c-wasm.git
   startCompilerElectron(port);
 })();

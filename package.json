@@ -18,6 +18,7 @@
     ],
     "asar": false,
     "mac": {
+      "icon": "./build/icons/icon2_512x512",
       "artifactName": "${productName}_setup_${version}.${ext}",
       "target": [
         "dmg"
@@ -107,7 +108,7 @@
     "sortablejs": "^1.14.0",
     "tinymce": "^5.9.2",
     "vditor": "^3.8.13",
-    "vue": "^3.2.31",
+    "vue": "^3.2.37",
     "vue-i18n": "^9.1.9",
     "vue-json-pretty": "^2.0.6",
     "vue-router": "^4.0.14",
