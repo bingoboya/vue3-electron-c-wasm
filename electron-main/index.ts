@@ -1,18 +1,25 @@
 import { app, BrowserWindow, screen } from 'electron';
 import is_dev from 'electron-is-dev';
 import { join } from 'path';
-import net from 'net';
-import child_process from 'child_process';
-
+// import net from 'net';
+// import child_process from 'child_process';
+const net = require('net');
+const child_process = require('child_process');
+// 解决“Electron Security Warning”安全警告: https://www.chfse.com/archives/2495
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 let mainWindow: BrowserWindow | null = null;
+const exePath = `${join(__dirname, '../PIPServe.exe')}`;
+
+console.log(1111, exePath);
+const cmdStrServer = `start ${exePath}`;
 
 function runExec() {
   // 使用 spawn 运行 ./PIPServe.exe，spawn运行的子进程会在主进程关闭时一起关闭
-  child_process.spawn('./PIPServe.exe', [], {
+  child_process.spawn(exePath, [], {
     windowsHide: false, // 隐藏子进程的窗口
   });
   //// 使用 exec 运行 ./PIPServe.exe， exec 运行的子进程不会在主进程关闭时一起关闭
-  // child_process.exec(cmdStrServer, {})
+  // child_process.exec(cmdStrServer, {});
   // child_process.exec(cmdStrClient, {})
 }
 
