@@ -18,7 +18,7 @@ function runExec(exePath, _cmdStrServer) {
   // child_process.exec(_cmdStrServer, {});  // 服务端，需要启动
   //// child_process.exec(_cmdStrClient, {}) // 客户端，不需要启动
 }
-
+console.log('process.platform', process.platform);
 if (process.platform === 'win32') {
   // 这是windows系统, mac系统下调用不了.exe文件
   //TODO PIPServe.exe 这个文件放到public中，打包后会被打到dist中，dist文件夹中的静态资源的路径就是下面的 exePath
