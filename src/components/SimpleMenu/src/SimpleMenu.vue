@@ -69,7 +69,6 @@
       const { currentRoute } = useRouter();
       const { prefixCls } = useDesign('simple-menu');
       const { items, accordion, mixSider, collapse } = toRefs(props);
-
       const { setOpenKeys, getOpenKeys } = useOpenKeys(
         menuState,
         items,

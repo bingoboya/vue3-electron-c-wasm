@@ -18,6 +18,7 @@
         default: 'calc(100vh - 78px)',
       },
     },
+    // views/demo/charts
     setup() {
       const chartRef = ref<HTMLDivElement | null>(null);
       const { setOptions, echarts } = useECharts(chartRef as Ref<HTMLDivElement>);

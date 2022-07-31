@@ -61,7 +61,8 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       proxy: createProxy(VITE_PROXY),
     },
     esbuild: {
-      pure: VITE_DROP_CONSOLE ? ['console.log', 'debugger'] : [],
+      pure: VITE_DROP_CONSOLE ? ['debugger'] : [], // 去掉 console.log,生产环境下也会有log
+      // pure: VITE_DROP_CONSOLE ? ['console.log', 'debugger'] : [],
     },
     build: {
       minify: 'esbuild',

@@ -1,8 +1,9 @@
 <template>
-  <div @click="openDrawer(true)">
+  <!-- TODO 打开项目配置的按钮 -->
+  <!-- <div @click="openDrawer(true)">
     <Icon icon="ion:settings-outline" />
     <SettingDrawer @register="register" />
-  </div>
+  </div> -->
 </template>
 <script lang="ts">
   import { defineComponent } from 'vue';

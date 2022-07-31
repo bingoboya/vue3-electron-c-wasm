@@ -1,5 +1,5 @@
 <template>
-  <Header :class="getHeaderClass">
+  <Header v-if="!bingoHide" :class="getHeaderClass">
     <!-- left start -->
     <div :class="`${prefixCls}-left`">
       <!-- logo -->
@@ -16,7 +16,7 @@
         :theme="getHeaderTheme"
         :sider="false"
       />
-      <LayoutBreadcrumb v-if="getShowContent && getShowBread" :theme="getHeaderTheme" />
+      <!-- <LayoutBreadcrumb v-if="getShowContent && getShowBread" :theme="getHeaderTheme" /> -->
     </div>
     <!-- left end -->
 
@@ -50,7 +50,7 @@
 
       <UserDropDown :theme="getHeaderTheme" />
 
-      <SettingDrawer v-if="getShowSetting" :class="`${prefixCls}-action__item`" />
+      <!-- <SettingDrawer v-if="getShowSetting" :class="`${prefixCls}-action__item`" /> -->
     </div>
   </Header>
 </template>
@@ -103,6 +103,7 @@
       fixed: propTypes.bool,
     },
     setup(props) {
+      const bingoHide = false;
       const { prefixCls } = useDesign('layout-header');
       const {
         getShowTopMenu,
@@ -171,6 +172,7 @@
       });
 
       return {
+        bingoHide,
         prefixCls,
         getHeaderClass,
         getShowHeaderLogo,

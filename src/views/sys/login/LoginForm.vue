@@ -119,7 +119,7 @@
   const rememberMe = ref(false);
 
   const formData = reactive({
-    account: 'vben',
+    account: 'bingo',
     password: '123456',
   });
 

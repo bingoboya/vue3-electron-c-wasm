@@ -1,4 +1,4 @@
-import { app, BrowserWindow, screen } from 'electron';
+import { app, BrowserWindow, screen, ipcMain } from 'electron';
 import is_dev from 'electron-is-dev';
 import { join } from 'path';
 // import net from 'net'; // 使用 from 方式引入 会 报错，没找到原因
@@ -71,7 +71,7 @@ class createWin {
         devTools: true,
         contextIsolation: false,
         nodeIntegration: true,
-        enableRemoteModule: true,
+        enableRemoteModule: true, // TODO 这个问题参考该网址 https://cache.one/read/16849125，没看懂
       },
       backgroundColor: '#fff',
     });
@@ -80,12 +80,20 @@ class createWin {
       : `file://${join(__dirname, '../index.html')}`; // vite 构建后的静态文件地址
 
     mainWindow.loadURL(URL);
+    mainWindow.setMenu(null);
     // if (is_dev) {
     mainWindow.webContents.openDevTools();
     // }
     if (process.platform === 'win32') {
       connectserver(); // 与子进程通信
     }
+
+    // 由渲染进程触发
+    ipcMain.on('a', (e, data) => {
+      console.log('data', data);
+      // 接收到渲染进程后，主进程会给渲染进程发送消息，不是针对所有窗口发送
+      e.sender.send('b', '主进程收到你的消息了,并告知你一声');
+    });
 
     mainWindow.on('ready-to-show', () => {
       mainWindow.show();
